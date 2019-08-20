@@ -4,7 +4,7 @@ class CartItem extends Component {
 
   render() {
       var {item} = this.props;
-      var {quality} =  item;
+      var {quantity} =  item;
       
     return (
         <tr>  
@@ -19,23 +19,23 @@ class CartItem extends Component {
         </td>
         <td>{item.product.price}</td>
         <td className="center-on-small-only">
-            <span className="qty">{quality} </span>
+            <span className="qty">{quantity} </span>
             <div className="btn-group radio-group" data-toggle="buttons">
                 <label 
-                onClick = {() =>{this.onUpdateQuality(item.product, item.quality-1)} } 
+                onClick = {() =>{this.onUpdateQuality(item.product, item.quantity-1)} } 
                 className="btn btn-sm btn-primary
                     btn-rounded waves-effect waves-light">
                     <a>—</a>
                 </label>
                 <label 
-                onClick = {() =>{this.onUpdateQuality(item.product, item.quality+1)}}
+                onClick = {() =>{this.onUpdateQuality(item.product, item.quantity+1)}}
                 className="btn btn-sm btn-primary
                     btn-rounded waves-effect waves-light">
                     <a>+</a>
                 </label>
             </div>
         </td>
-        <td>{this.SubTottal(item.product.price, item.quality)}$</td>
+        <td>{this.SubTottal(item.product.price, item.quantity)}$</td>
         <td>
             <button onClick = {() => {this.onDelete(item.product)}} type="button" className="btn btn-sm btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top"
                 title="" data-original-title="Remove item">
@@ -47,16 +47,16 @@ class CartItem extends Component {
     );
   }
 
-  onUpdateQuality = (product,quality) =>{
+  onUpdateQuality = (product,quantity) =>{
       var {onUpdateProductInCart, onChangeMessage} = this.props;
-    if(quality > 0){
-        onUpdateProductInCart(product, quality);
+    if(quantity > 0){
+        onUpdateProductInCart(product, quantity);
         onChangeMessage(Messages.MSG_UPDATE_CART_SUCCSEE);
     }
   }
 
-  SubTottal = (price, quality) =>{
-    return price*quality;     
+  SubTottal = (price, quantity) =>{
+    return price*quantity;     
   }
   onDelete = (product) =>{
     var {onDeleteProductInCart, onChangeMessage} = this.props;

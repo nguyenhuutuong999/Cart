@@ -52,25 +52,25 @@ class CartContainer extends Component {
   }
 }
 
-CartContainer.propTypes = {
-  cart: PropTypes.arrayOf(
-    PropTypes.shape({
-      product: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        inventory: PropTypes.number.isRequired,
-        rating: PropTypes.number.isRequired,
-      }).isRequired,
-      quality: PropTypes.number.isRequired
-    })).isRequired,
-    onDeleteProductInCart: PropTypes.func.isRequired,
-    onChangeMessage: PropTypes.func.isRequired,
-    onUpdateProductInCart: PropTypes.func.isRequired,
+// CartContainer.propTypes = {
+//   cart: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       product: PropTypes.shape({
+//         id: PropTypes.number.isRequired,
+//         name: PropTypes.string.isRequired,
+//         image: PropTypes.string.isRequired,
+//         description: PropTypes.string.isRequired,
+//         price: PropTypes.number.isRequired,
+//         inventory: PropTypes.number.isRequired,
+//         rating: PropTypes.number.isRequired,
+//       }).isRequired,
+//       quality: PropTypes.number.isRequired
+//     })).isRequired,
+//     onDeleteProductInCart: PropTypes.func.isRequired,
+//     onChangeMessage: PropTypes.func.isRequired,
+//     onUpdateProductInCart: PropTypes.func.isRequired,
     
-}
+// }
 
 const mapStateToProps = state => {
   return {
